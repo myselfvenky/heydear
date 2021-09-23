@@ -3,19 +3,45 @@ import './App.css';
 
 import React from 'react'
 import { BiFemaleSign, BiMaleSign } from "react-icons/bi"
+import { RiMicLine, RiMicOffFill } from "react-icons/ri"
+import { createSpeechlySpeechRecognition } from '@speechly/speech-recognition-polyfill';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+
+
+
+
+
 
 export default class App extends React.Component {
 
   state = {
     circle: "circle", bg: "Main", splash: 0,
-    spells: 0
+    spells: 0, mic: false
+
   }
+
+  // , Dictaphone = () => {
+  //   const {
+  //     transcript,
+  //     listening,
+  //     resetTranscript,
+  //     browserSupportsSpeechRecognition
+  //   } = useSpeechRecognition();
+
+  //   if (!browserSupportsSpeechRecognition) {
+  //     return <span>Browser doesn't support speech recognition.</span>;
+  //   }
+  // }
   spellsmaker = () => {
     this.setState({
       spells: 1
     })
   }
+  micfn = () => {
+    var a = this.state.mic;
+    a === false ? this.setState({ mic: true }) : this.setState({ mic: false });
 
+  }
   timerforsplash = () => {
     this.setState({
       splash: 1
@@ -26,6 +52,7 @@ export default class App extends React.Component {
   componentDidMount() {
     setTimeout(this.timerforsplash, 4000);
     setTimeout(this.spellsmaker, 6000);
+
   }
 
   a = [{
@@ -104,13 +131,22 @@ export default class App extends React.Component {
 
 
             <div className={this.state.bg}>
+              <div className="spacer"></div>
               <div className={this.state.circle} />
+              <div className="spacer">
+
+              </div>
             </div>
             <div className="floating-bottom-text">
               <div className="floater-text-container">
                 {this.state.spells === 0 && <h2>Welcome...</h2>}
                 {this.state.spells === 1 && <h2>Say "Hey Dear" and start talking...</h2>}
+
               </div>
+            </div>
+            <div className="floating-bottom-bar">
+              {this.state.mic === true && <RiMicLine className="mic" onClick={this.micfn} />}
+              {this.state.mic === false && <RiMicOffFill className="mic" onClick={this.micfn} />}
             </div>
           </>
         }
