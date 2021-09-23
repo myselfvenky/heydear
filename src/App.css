@@ -169,7 +169,7 @@
 h2 {
   font-size: 1.5rem;
   height: 100%;
-  width: max;
+  width: max-content;
   color: #fff;
   animation: fade 2s infinite;
 }
