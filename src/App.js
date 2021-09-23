@@ -4,14 +4,8 @@ import './App.css';
 import React from 'react'
 import { BiFemaleSign, BiMaleSign } from "react-icons/bi"
 import { RiMicLine, RiMicOffFill } from "react-icons/ri"
-import { createSpeechlySpeechRecognition } from '@speechly/speech-recognition-polyfill';
-import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-
-
-
-
-
-
+// import { createSpeechlySpeechRecognition } from '@speechly/speech-recognition-polyfill';
+// import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 export default class App extends React.Component {
 
   state = {
