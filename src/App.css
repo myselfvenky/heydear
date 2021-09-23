@@ -97,7 +97,7 @@
     rgba(193, 101, 221, 1) 17%,
     rgba(92, 39, 254, 1) 92%
   );
-  animation: glow 2s infinite alternate-reverse;
+  animation: glow 1s infinite alternate-reverse;
   border-radius: 100%;
   box-shadow: 35px 35px 70px #8f9723, -35px -35px 70px #a8a62a;
 }
@@ -122,9 +122,13 @@
 }
 @keyframes glow {
   from {
+    height: 28vh;
+    width: 28vh;
     box-shadow: 0 0 20px 3px #070706;
   }
   to {
+    height: 30vh;
+    width: 30vh;
     box-shadow: 0 0 50px 3px #46453e;
   }
 }
