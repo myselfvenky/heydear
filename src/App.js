@@ -141,6 +141,7 @@ export default class App extends React.Component {
             <div className="floating-bottom-bar">
               {this.state.mic === true && <RiMicLine className="mic" onClick={this.micfn} />}
               {this.state.mic === false && <RiMicOffFill className="mic" onClick={this.micfn} />}
+              <div>Developed by Venky</div>
             </div>
           </>
         }
