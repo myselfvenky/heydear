@@ -7,7 +7,7 @@ import { useSpeechSynthesis } from 'react-speech-kit'
 
 
 const Boom = (props) => {
-    var a = "Hii Welcome to Hey Dear"
+    var a = "Hey Welcome to Hey Dear"
     const { speak } = useSpeechSynthesis();
 
     return (
