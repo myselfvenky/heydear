@@ -3,13 +3,9 @@ import React from 'react'
 import { BiFemaleSign, BiMaleSign } from "react-icons/bi"
 import { RiMicLine, RiMicOffFill } from "react-icons/ri"
 import { useSpeechSynthesis } from 'react-speech-kit'
-
-
-
 const Boom = (props) => {
-    var a = "Hey Welcome to Hey Dear"
+    var a = "HeyWassup!How is it going on?"
     const { speak } = useSpeechSynthesis();
-
     return (
         <div className="page"> <div className="nav">
             <div className="gender">
@@ -23,10 +19,8 @@ const Boom = (props) => {
                 <div className="colorchangers red" onClick={props.redcircle}></div>
             </div>
         </div>
-
-
             <div className={props.bg}>
-                <div className={props.circle} onClick={() => speak({ text: a })} />
+                <div className={props.circle} />
             </div>
             <div className="floating-bottom-text">
                 <div className="floater-text-container">
@@ -36,7 +30,11 @@ const Boom = (props) => {
                 </div>
             </div>
             <div className="floating-bottom-bar">
-                {props.mic === true && <RiMicLine className="mic" onClick={props.micfn} />}
+                {props.mic === true && <RiMicLine className="mic" onClick={() => {
+                    speak({ text: a })
+                    props.micfn();
+                }}
+                />}
                 {props.mic === false && <RiMicOffFill className="mic" onClick={props.micfn} />}
                 <div>Developed by Venky</div>
             </div>

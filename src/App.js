@@ -2,11 +2,11 @@
 import './App.css';
 import React from 'react'
 import Boom from './Boom';
+import Modal from './Modal';
 export default class App extends React.Component {
   state = {
     circle: "circle", bg: "Main", splash: 0,
     spells: 0, mic: false
-
   }
   spellsmaker = () => {
     this.setState({
@@ -16,26 +16,25 @@ export default class App extends React.Component {
   micfn = () => {
     var a = this.state.mic;
     a === false ? this.setState({ mic: true }) : this.setState({ mic: false });
-
   }
   timerforsplash = () => {
     this.setState({
-      splash: 1
-
+      splash: 2
     })
   }
-
+  nextsplash = () => {
+    this.setState({
+      splash: 1
+    })
+  }
   componentDidMount() {
     setTimeout(this.timerforsplash, 4000);
     setTimeout(this.spellsmaker, 6000);
-
   }
-
   whitebg = "Main white"
   bisquebg = "Main bisque"
   bisbg = "Main bis"
   redbg = "Main red"
-
   whitefn = "circleafter white"
   bisquefn = "circleafter bisque"
   bisfn = "circleafter bis"
@@ -60,11 +59,8 @@ export default class App extends React.Component {
       circle: this.redfn, bg: this.redbg
     })
   }
-
   render() {
-
     return (
-
       <div className="App">
         {this.state.splash === 0 &&
           <div className="splash">
@@ -75,6 +71,7 @@ export default class App extends React.Component {
               </div>
             </div>
           </div>}
+        {this.state.splash === 2 && <Modal next={this.nextsplash} />}
         {this.state.splash === 1 &&
           <Boom circle={this.state.circle} bg={this.state.bg} splash={this.state.splash}
             spells={this.state.spells} mic={this.state.mic} whitecircle={this.whitecircle}
