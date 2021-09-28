@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSpeechSynthesis } from 'react-speech-kit'
 const Modal = (props) => {
-    var a = "Hey Welcome to Hey Dear"
+    var a = "Hey ! Welcome to Hey Dear"
     const { speak } = useSpeechSynthesis();
     return (
         <div className="open">
